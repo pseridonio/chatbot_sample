@@ -1,4 +1,5 @@
 using Birra.API.Data;
+using Birra.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -43,6 +44,11 @@ namespace Birra.API
             {
                 options.UseSqlite(_configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddSingleton<IConfiguration>(_configuration);
+            services.AddSingleton<SystemParametersService, SystemParametersService>();
+            services.AddScoped<IQuestionService, QuestionService>();
+            services.AddScoped<IAnswerService, AnswerService>();
 
             services.AddControllers();
             services.AddCors();

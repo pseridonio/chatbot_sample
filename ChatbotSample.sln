@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Birra.API", "Birra.API\Birra.API.csproj", "{85E8CE5F-2394-42AC-B5CC-CB3DE8D3315A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Birra.API", "Birra.API\Birra.API.csproj", "{85E8CE5F-2394-42AC-B5CC-CB3DE8D3315A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Birra.API.Data", "Birra.API.Data\Birra.API.Data.csproj", "{DB90281D-1BF4-4353-A411-EE78BEBC1940}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Birra.API.Data", "Birra.API.Data\Birra.API.Data.csproj", "{DB90281D-1BF4-4353-A411-EE78BEBC1940}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Birra.API.DTOs", "Birra.API.DTOs\Birra.API.DTOs.csproj", "{24C88CEC-83DD-4A16-B485-74A9BB1D0867}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{DB90281D-1BF4-4353-A411-EE78BEBC1940}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB90281D-1BF4-4353-A411-EE78BEBC1940}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB90281D-1BF4-4353-A411-EE78BEBC1940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24C88CEC-83DD-4A16-B485-74A9BB1D0867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24C88CEC-83DD-4A16-B485-74A9BB1D0867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24C88CEC-83DD-4A16-B485-74A9BB1D0867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24C88CEC-83DD-4A16-B485-74A9BB1D0867}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -3,14 +3,16 @@ using System;
 using Birra.API.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Birra.API.Data.Migrations
 {
     [DbContext(typeof(BirraDataContext))]
-    partial class BirraDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210410234228_CreatingSessionTable")]
+    partial class CreatingSessionTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,10 +45,6 @@ namespace Birra.API.Data.Migrations
                     b.Property<int>("CurrentQuestionID")
                         .HasColumnType("INTEGER")
                         .HasColumnName("CURRENT_QUESTION_ID");
-
-                    b.Property<DateTime>("LastInteraction")
-                        .HasColumnType("DATETIME")
-                        .HasColumnName("LAST_INTERACTION");
 
                     b.HasKey("CurrentSessionID")
                         .HasName("PK_CURRENT_SESSIONS");

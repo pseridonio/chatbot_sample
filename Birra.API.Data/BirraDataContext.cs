@@ -11,7 +11,7 @@ namespace Birra.API.Data
         public DbSet<Entities.Answer> Answers { get; set; }
         public DbSet<Entities.Message> Messages { get; set; }
         public DbSet<Entities.RelationQuestionAnswer> RelationQuestionAnswers {get;set;}
-
+        public DbSet<Entities.CurrentSession> CurrentSessions { get; set; }
         public BirraDataContext([NotNullAttribute]DbContextOptions options): base(options)
         {
 
@@ -23,7 +23,7 @@ namespace Birra.API.Data
             this.CreateAnswerTable(modelBuilder);
             this.CreateMessageTable(modelBuilder);
             this.CreateRelationQuestionAnswerTable(modelBuilder);
-
+            this.CreateCurrentSessionTable(modelBuilder);
             base.OnModelCreating(modelBuilder);
 
         }
@@ -158,7 +158,34 @@ namespace Birra.API.Data
                     .OnDelete(DeleteBehavior.Restrict);
             });
         }
-        
-    }
+        private void CreateCurrentSessionTable(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Entities.CurrentSession>(currentSessionEntity =>
+            {
+                currentSessionEntity.ToTable("TB_CURRENT_SESSIONS");
 
+                currentSessionEntity
+                    .HasKey(currentSession => currentSession.CurrentSessionID)
+                    .HasName("PK_CURRENT_SESSIONS");
+
+                currentSessionEntity
+                    .Property(currentSession => currentSession.CurrentSessionID)
+                    .HasColumnName("CURRENT_SESSION_ID")
+                    .HasColumnType("VARCHAR(50)")
+                    .IsRequired();
+
+                currentSessionEntity
+                    .Property(currentSession => currentSession.LastInteraction)
+                    .HasColumnName("LAST_INTERACTION")
+                    .HasColumnType("DATETIME")
+                    .IsRequired();
+
+                currentSessionEntity
+                    .Property(currentSession => currentSession.CurrentQuestionID)
+                    .HasColumnName("CURRENT_QUESTION_ID")
+                    .HasColumnType("INTEGER")
+                    .IsRequired();
+            });
+        }
+    }
 }
